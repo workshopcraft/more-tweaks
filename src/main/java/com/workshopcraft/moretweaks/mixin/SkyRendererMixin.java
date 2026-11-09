@@ -10,10 +10,26 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SkyRenderer.class)
 public abstract class SkyRendererMixin {
+    //? if >=26.3 {
+    /*@Inject(method = "renderEndFlash", at = @At("HEAD"), cancellable = true)
+    private void moretweaks$skipWhenHidden(
+        com.mojang.renderpearl.api.commands.RenderPass renderPass,
+        PoseStack pose,
+        float intensity,
+        float xAngle,
+        float yAngle,
+        CallbackInfo ci
+    ) {
+        if (ClientOptions.hideEndFlash()) {
+            ci.cancel();
+        }
+    }
+    *///?} else {
     @Inject(method = "renderEndFlash", at = @At("HEAD"), cancellable = true)
     private void moretweaks$skipWhenHidden(PoseStack pose, float intensity, float xAngle, float yAngle, CallbackInfo ci) {
         if (ClientOptions.hideEndFlash()) {
             ci.cancel();
         }
     }
+    //?}
 }

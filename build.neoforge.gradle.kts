@@ -10,6 +10,7 @@ group = property("mod.group") as String
 base.archivesName = "${property("mod.id")}-neoforge-$mc"
 
 val requiredJava = JavaVersion.VERSION_25
+val logoKey = if (sc.current.parsed >= "26.2") "iconFile" else "logoFile"
 
 sourceSets.main {
     java.exclude("com/workshopcraft/moretweaks/fabric/**", "com/workshopcraft/moretweaks/forge/**")
@@ -46,12 +47,18 @@ tasks {
             "author" to sc.properties.get<String>("mod.author"),
             "description" to sc.properties.get<String>("mod.description"),
             "minecraft" to sc.properties.get<String>("mod.mc_compat"),
-            "neoforge" to "[26.1.0.0-beta,)",
+            "neoforge" to sc.properties.get<String>("deps.neo_compat"),
+            "fml" to sc.properties.get<String>("deps.neo_fml_compat"),
             "java" to requiredJava.majorVersion,
+            "pack_min" to sc.properties.get<String>("mod.pack_min"),
+            "pack_max" to sc.properties.get<String>("mod.pack_max"),
+            "logo_key" to logoKey,
             "refmap" to "",
         )
         inputs.properties(props)
         filesMatching(listOf("META-INF/neoforge.mods.toml", "pack.mcmeta", "moretweaks.mixins.json")) { expand(props) }
+        exclude("fabric.mod.json")
+        exclude("moretweaks.accesswidener")
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
 

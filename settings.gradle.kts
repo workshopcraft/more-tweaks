@@ -2,6 +2,7 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
+        maven("https://maven.fabricmc.net/") { name = "FabricMC" }
         maven("https://maven.neoforged.net/releases/") { name = "NeoForged" }
         maven("https://maven.kikugie.dev/releases") { name = "KikuGie Releases" }
     }
@@ -9,11 +10,19 @@ pluginManagement {
 
 plugins {
     id("dev.kikugie.stonecutter") version "0.9.8"
+    id("dev.kikugie.loom-back-compat") version "0.4.2"
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
 stonecutter {
     create(rootProject) {
-        version("26.1.2-neoforge", "26.1.2").buildscript("build.neoforge.gradle.kts")
+        fun match(project: String, vararg loaders: String, version: String = project) {
+            for (loader in loaders) version("$project-$loader", version).buildscript("build.$loader.gradle.kts")
+        }
+
+        match("26.1.2", "fabric", "neoforge")
+        match("26.2", "fabric", "neoforge")
+        match("26.3", "fabric", "neoforge")
         vcsVersion = "26.1.2-neoforge"
     }
 }
