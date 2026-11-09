@@ -37,7 +37,13 @@ public abstract class LightmapRenderStateExtractorMixin {
             return;
         }
         float intensity = endFlashState.getIntensity(partialTicks);
-        if (minecraft.gui.getBossOverlay().shouldCreateWorldFog()) {
+        boolean bossFog;
+        //? if >=26.2 {
+        /*bossFog = minecraft.gui.hud.getBossOverlay().shouldCreateWorldFog();
+        *///?} else {
+        bossFog = minecraft.gui.getBossOverlay().shouldCreateWorldFog();
+        //?}
+        if (bossFog) {
             state.skyFactor -= intensity / 3.0f;
         } else {
             state.skyFactor -= intensity;

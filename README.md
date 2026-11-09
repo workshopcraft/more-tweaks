@@ -1,8 +1,6 @@
 # More Tweaks
 
-Client-side tweaks for Minecraft.
-
-Version 1.0.0 targets Minecraft 26.1.2 on NeoForge. The mod loads on the client. This version ships one tweak.
+Client-side tweaks for Minecraft. Version 1.0.0 ships one tweak.
 
 ## Hide End Flashes
 
@@ -12,22 +10,18 @@ When the option is on, the pink End sky glow and its light pulses are hidden. Th
 
 The option defaults to off and is saved with Minecraft's other options.
 
-## Requirements
+## Builds
 
-- Minecraft 26.1.2
-- NeoForge 26.1.2
-- Java 25, to build
+| Minecraft | NeoForge | Fabric |
+| --- | --- | --- |
+| 26.1.2 | 26.1.2.122 | Loader 0.18.6 |
+| 26.2 | 26.2.0.93 | Loader 0.20.1 |
+| 26.3 | 26.3.0.101 | Loader 0.19.5 |
 
-## Install
-
-Copy `moretweaks-neoforge-26.1.2-1.0.0.jar` into the instance `mods` folder and launch the client.
-
-## Build
-
-From the project root:
+Java 25 is required to build. Other Workshopcraft mods also publish 1.20.1 and 1.21.1, but those versions have no End flash, so this mod is not built for them.
 
 ```
-./gradlew :26.1.2-neoforge:build
+./gradlew build
 ```
 
-Gradle writes the mod jar to `versions/26.1.2-neoforge/build/libs/`.
+Jars are written to `versions/<version>-<loader>/build/libs/`.
