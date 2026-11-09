@@ -1,0 +1,4 @@
+{
+  "options.hideEndFlashes": "Hide End Flashes",
+  "options.hideEndFlashes.tooltip": "Prevents the pink End flashes from making the sky flash. Does not affect Lightning Bolts or other environmental flashes, which are controlled by the \"Hide Sky Flashes\" option."
+}

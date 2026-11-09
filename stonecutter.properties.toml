@@ -1,0 +1,10 @@
+mod.id = "moretweaks"
+mod.name = "More Tweaks"
+mod.group = "com.workshopcraft.moretweaks"
+mod.version = "1.0.0"
+mod.author = "workshopcraft"
+mod.description = "Client-side tweaks. Hide End Flashes, on the Accessibility screen, turns off the End's pink sky glow and pulses. The End rumble and the vanilla Hide Sky Flashes option are unchanged."
+
+[neoforge."26.1.2"]
+mod.mc_compat = "[26.1,26.2)"
+deps.neo_loader = "26.1.2.122"

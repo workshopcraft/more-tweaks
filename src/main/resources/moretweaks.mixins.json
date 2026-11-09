@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.workshopcraft.moretweaks.mixin",
+    "compatibilityLevel": "JAVA_${java}",${refmap}
+    "client": [
+        "EndFlashOptionMixin",
+        "AccessibilityOptionsScreenMixin",
+        "SkyRendererMixin",
+        "LightmapRenderStateExtractorMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
